@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB 容量上限確認ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>IndexedDB 容量上限確認ツール</h1>
+
+    <div class="container">
+        <h2>現在の容量確認 (Storage API)</h2>
+        <button id="checkStorageBtn">現在の使用量/割当量を表示</button>
+        <div id="storageResult" class="result-area"></div>
+    </div>
+
+    <div class="container">
+        <h2>データの永続化設定 (Storage API)</h2>
+        <button id="persistBtn">永続化をリクエスト</button>
+        <div id="persistResult" class="result-area"></div>
+    </div>
+
+    <div class="container test-section">
+        <h2>テスト1: 容量上限の確認 (最大 3 GiB)</h2>
+        <p>IndexedDB に 100 MiB のデータを繰り返し追加し、総容量の上限を測定します。</p>
+        <button id="testCapacityBtn">容量上限テスト開始</button>
+        <div id="capacityResult" class="result-area"></div>
+        <progress id="capacityProgress" value="0" max="3072"></progress> </div>
+
+    <div class="container test-section">
+        <h2>テスト2: 1 Key-Value ペアのデータ上限確認 (最大 300 MiB)</h2>
+        <p>単一のキーに格納できるデータサイズの上限を測定します。</p>
+        <button id="testSingleSizeBtn">単一データサイズ上限テスト開始</button>
+        <div id="singleSizeResult" class="result-area"></div>
+         <progress id="singleSizeProgress" value="0" max="300"></progress>
+    </div>
+
+    <div class="container test-section">
+        <h2>テスト3: 1 ストアのデータ件数上限確認 (最大 10,000 件)</h2>
+        <p>1 つのオブジェクトストアに登録できるレコード数の上限を測定します。</p>
+        <button id="testCountBtn">データ件数上限テスト開始</button>
+        <div id="countResult" class="result-area"></div>
+        <progress id="countProgress" value="0" max="10000"></progress>
+    </div>
+
+     <div class="container">
+        <h2>テストデータの削除</h2>
+        <p>このツールが IndexedDB に作成したすべてのデータを削除します。</p>
+        <button id="clearDbBtn">テストデータを削除</button>
+        <div id="clearDbResult" class="result-area"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
